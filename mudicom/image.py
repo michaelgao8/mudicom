@@ -69,11 +69,11 @@ class Image(object):
         # use float for accurate scaling
         dimensions = image.GetDimensions()
         result = numpy.frombuffer(gdcm_array, dtype=self.data_type).astype(float)
-        if len(dimensions) == 3:
+        #if len(dimensions) == 3:
             # for cine (animations) there are 3 dims: x, y, number of frames
-            result.shape = dimensions[2], dimensions[0], dimensions[1]
-        else:
-            result.shape = dimensions
+        #    result.shape = dimensions[2], dimensions[0], dimensions[1]
+        #else:
+        #    result.shape = dimensions
         return result
 
     def save_as_plt(self, fname, pixel_array=None, vmin=None, vmax=None,
